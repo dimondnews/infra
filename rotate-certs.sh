@@ -16,6 +16,8 @@ move() {
           sudo mv /opt/${dir}/apache2/conf/server.key /opt/${dir}/apache2/conf/server.key.old
           sudo ln -s /etc/letsencrypt/live/${DOMAIN}/privkey.pem /opt/${dir}/apache2/conf/server.key
           sudo ln -s /etc/letsencrypt/live/${DOMAIN}/fullchain.pem /opt/${dir}/apache2/conf/server.crt
+          sudo chown bitnami.bitnami /etc/letsencrypt/live/dimondnews.org/privkey.pem
+          sudo chown bitnami.bitnami /etc/letsencrypt/live/dimondnews.org/fullchain.pem
           sudo /opt/${dir}/ctlscript.sh start apache
   done
 }
